@@ -1,0 +1,82 @@
+<h1 class="title">
+  {{
+    funcion == "add"
+      ? "Formulario para Agregar Categoria"
+      : "Formulario para actualizar Categoria"
+  }}
+</h1>
+<form
+  [formGroup]="formCategory"
+  class="form"
+  (submit)="funcion == 'add' ? addCategory() : updateCategory()"
+>
+  <!-- CM: Campo Nombre de la Categoria -->
+  <mat-form-field
+    appearance="outline"
+    [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+  >
+    <mat-label
+      >Nombre
+      <span
+        class="msg"
+        [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+        >(El nombre es requerido)</span
+      ></mat-label
+    >
+    <input
+      formControlName="nombre"
+      type="text"
+      matInput
+      placeholder="Ingrese el nombre de la Categoria"
+    />
+  </mat-form-field>
+
+  <!-- CM: Campo Descripcion de la Categoria -->
+  <mat-form-field
+    appearance="outline"
+    [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+  >
+    <mat-label
+      >Descripción
+      <span
+        class="msg"
+        [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+        >(La descripcion es requerida)</span
+      ></mat-label
+    >
+    <textarea
+      formControlName="descripcion"
+      type="text"
+      matInput
+      placeholder="Ingrese la descripción de la Categoria"
+    >
+    </textarea>
+  </mat-form-field>
+
+  <!-- CM: Campo Imagen de la Categoria -->
+  <mat-form-field
+    appearance="outline"
+    [ngClass]="{'fail':imagen?.errors?.['required'] && imagen?.touched}"
+  >
+    <mat-label
+      >Imagen
+      <span
+        class="msg"
+        [ngClass]="{'fail':imagen?.errors?.['required'] && imagen?.touched}"
+        >(La imagen es requerida)</span
+      ></mat-label
+    >
+    <input
+      formControlName="imagen"
+      type="text"
+      matInput
+      placeholder="Ingrese la imagen de la Categoria"
+    />
+  </mat-form-field>
+
+  <div class="cont-btn">
+    <button mat-raised-button color="primary" type="submit">
+      {{ funcion == "add" ? "Agregar Categoria" : "Actualizar Categoria" }}
+    </button>
+  </div>
+</form>

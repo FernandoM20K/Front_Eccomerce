@@ -1,0 +1,6 @@
+<div *ngIf="productoObtenido" class="spinner">
+    <app-form-product [funcion]="'edit'" [product]="productoObtenido" ></app-form-product>
+</div>
+<div *ngIf="!productoObtenido">
+    <app-spinner></app-spinner>
+</div>

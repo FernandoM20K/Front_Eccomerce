@@ -1,0 +1,42 @@
+.form-field {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #8efc10;
+    padding: 10px 0;
+    outline: none;
+}
+
+.cont-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-login {
+    background: #8efc10;
+    padding: 10px 40px;
+    border-radius: .5rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        background: darken(#8efc10, 10);
+    }
+}
+
+.register {
+    background: none;
+    border: none;
+    color: #616161;
+    cursor: pointer;
+
+    span {
+        color: #8efc10;
+        border-bottom: 1px solid #8efc10;
+    }
+}

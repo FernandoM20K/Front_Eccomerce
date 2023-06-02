@@ -1,0 +1,88 @@
+<h1 class="title">
+    {{
+      funcion == "add"
+        ? "Formulario para Agregar Marca"
+        : "Formulario para actualizar Marca"
+    }}
+  </h1>
+  <form [formGroup]="formMarca" class="form" (submit)=" funcion == 'add' ? addMarca() : updateMarca() ">
+    <!-- CM: Campo Nombre de la Marca -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+    >
+      <mat-label
+        >Nombre
+        <span
+          class="msg"
+          [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+        >(El nombre es requerido)</span
+        ></mat-label
+      >
+      <input
+        formControlName="nombre"
+        type="text"
+        matInput
+        placeholder="Ingrese el nombre de la Marca"
+      />
+    </mat-form-field>
+  
+    <!-- CM: Campo Descripcion del Marca -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+    >
+      <mat-label
+        >Descripción
+        <span
+          class="msg"
+          [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+          >(La descripcion es requerida)</span
+        ></mat-label
+      >
+      <textarea 
+        formControlName="descripcion"
+        type="text"
+        matInput
+        placeholder="Ingrese la descripción de la Marca"
+      >
+      </textarea>
+    </mat-form-field>
+
+    <!-- CM: Campo logo de la Marca -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':logo?.errors?.['required'] && logo?.touched}"
+    >
+      <mat-label
+        >Logo
+        <span
+          class="msg"
+          [ngClass]="{'fail':logo?.errors?.['required'] && logo?.touched}"
+          >(El logo es requerido)</span
+        ></mat-label
+      >
+      <input 
+        formControlName="logo"
+        type="text"
+        matInput
+        placeholder="Ingrese el logo de la Marca"
+      />
+    </mat-form-field>
+  
+    <!-- CM: Campo Estado del Producto -->
+    <!--<div class="cont-switch">
+    <label>Estado: </label>-->
+    <!-- CM: Rounded switch -->
+    <!--<label class="switch">
+        <input
+            formControlName="estado"
+            type="checkbox" 
+        />
+        <span class="slider round"></span>
+    </label>
+    </div>-->
+  
+    <div class="cont-btn">
+      <button mat-raised-button color="primary" type="submit">
+        {{ funcion == "add" ? "Agregar Marca" : "Actualizar Marca" }}
+      </button>
+    </div>
+  </form>

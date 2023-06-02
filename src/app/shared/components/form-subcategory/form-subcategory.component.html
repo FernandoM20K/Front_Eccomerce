@@ -1,0 +1,107 @@
+<h1 class="title">
+    {{
+      funcion == "add"
+        ? "Formulario para Agregar Subcategoria"
+        : "Formulario para actualizar Subcategoria"
+    }}
+  </h1>
+  <form [formGroup]="formSubcategory" class="form" (submit)=" funcion == 'add' ? addSubcategory() : updateSubcategory() ">
+    <!-- CM: Campo Nombre del Subcategoria -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+    >
+      <mat-label
+        >Nombre
+        <span
+          class="msg"
+          [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+        >(El nombre es requerido)</span
+        ></mat-label
+      >
+      <input
+        formControlName="nombre"
+        type="text"
+        matInput
+        placeholder="Ingrese el nombre de la Sucategoria"
+      />
+    </mat-form-field>
+  
+    <!-- CM: Campo Descripcion del Subcategoria -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+    >
+      <mat-label
+        >Descripción
+        <span
+          class="msg"
+          [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+          >(La descripcion es requerida)</span
+        ></mat-label
+      >
+      <textarea 
+        formControlName="descripcion"
+        type="text"
+        matInput
+        placeholder="Ingrese la descripción de la Subcategoria"
+      >
+      </textarea>
+    </mat-form-field>
+  
+    <!-- CM: Campo Estado del Producto -->
+    <!--<div class="cont-switch">
+    <label>Estado: </label>-->
+    <!-- CM: Rounded switch -->
+    <!--<label class="switch">
+        <input
+            formControlName="estado"
+            type="checkbox" 
+        />
+        <span class="slider round"></span>
+    </label>
+    </div>-->
+  
+    <!-- CM: Campo Categoria del Producto -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':categoriaId?.errors?.['required'] && categoriaId?.touched}"
+    >
+      <mat-label
+        >Categoria del Producto
+        <span
+          class="msg"
+          [ngClass]="{'fail':categoriaId?.errors?.['required'] && categoriaId?.touched}"
+          >(La Categoria es requerida)</span
+        ></mat-label
+      >
+      <mat-select formControlName="categoriaId">
+        <mat-option *ngFor="let categoria of categoriesList" [value]="categoria.categoriaId">{{ categoria.nombre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- CM: Campo Imagen de la Subcategoria -->
+  <mat-form-field
+  appearance="outline"
+  [ngClass]="{'fail':imagen?.errors?.['required'] && imagen?.touched}"
+>
+  <mat-label
+    >Imagen
+    <span
+      class="msg"
+      [ngClass]="{'fail':imagen?.errors?.['required'] && imagen?.touched}"
+      >(La imagen es requerida)</span
+    ></mat-label
+  >
+  <input
+    formControlName="imagen"
+    type="text"
+    matInput
+    placeholder="Ingrese la imagen de la Subcategoria"
+  />
+</mat-form-field>
+  
+    <div class="cont-btn">
+      <button mat-raised-button color="primary" type="submit">
+        {{ funcion == "add" ? "Agregar Subcategoria" : "Actualizar Subcategoria" }}
+      </button>
+    </div>
+  </form>
+  

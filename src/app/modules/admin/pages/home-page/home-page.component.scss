@@ -1,0 +1,23 @@
+.body {
+    height: 100vh;
+    width: 100vw;
+    background: aquamarine;
+    display: flex;
+}
+
+.dash {
+    overflow-y: auto;
+    background: white;
+    width: 100%;
+    padding: 20px;
+
+    &::-webkit-scrollbar {
+        background-color: #171821;
+        width: 11px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #6e6e6e;
+        border-radius: 5rem;
+    }
+}

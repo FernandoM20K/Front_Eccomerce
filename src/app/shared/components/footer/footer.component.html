@@ -1,0 +1,28 @@
+<footer class="footer">
+    <div class="footer-p1">
+        <div class="info-empresa">
+            <div class="cont-img">
+                <img src="./../../../../assets/img/icons/logo.svg" alt="">
+            </div>
+            <h3>Best information about the company gies here but now lorem ipsum is</h3>
+            <ul class="redes-lista">
+                <li *ngFor="let red of listaRedes">
+                    <button class="btn-red" >
+                        <img src="{{ red.icon }}" alt="">
+                    </button>         
+                </li>
+            </ul>
+        </div>
+        <ul class="info-total">
+            <li *ngFor="let enlaces of enlacesInteres">
+                <button class="btn-enlace principal">{{ enlaces.nombre }}</button>
+                <ul class="subenlaces">
+                    <li *ngFor="let subenlaces of enlaces.subenlaces">
+                        <button class="btn-enlace">{{ subenlaces.nombre }}</button>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h3 class="copy">&copy; {{ yearNow }} Nombre del Ecommerce. Mas info si quieren</h3>
+</footer>

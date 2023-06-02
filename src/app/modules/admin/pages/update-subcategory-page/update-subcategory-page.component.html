@@ -1,0 +1,6 @@
+<div *ngIf="subcategoryObtenida">
+    <app-form-subcategory [funcion]="'edit'" [subcategory]="subcategoryObtenida" ></app-form-subcategory>
+</div>
+<div *ngIf="!subcategoryObtenida">
+    <app-spinner></app-spinner>
+</div>

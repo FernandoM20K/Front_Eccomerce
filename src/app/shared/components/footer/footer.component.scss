@@ -1,0 +1,76 @@
+.footer {
+    width: 100%;
+
+    &-p1 {
+        background: whitesmoke;
+        display: flex;
+        padding: 40px 60px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.info {
+    &-total {
+        display: flex;
+        gap: 80px;
+    }
+
+    &-empresa {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h3 {
+            font-size: 0.9rem;
+            line-height: 1;
+            margin: 0; // CM: Arreglar el problema del margin el los elemento de h1, h2, h3, h4, h5, h6
+        }
+    }
+}
+
+.redes-lista {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-red {
+    height: 40px;
+    background-color: #F5E9CF;
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+
+    img {
+        height: 100%;
+    }
+}
+
+.btn-enlace {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover {
+        color: lighten(#000000, 50);
+    }
+}
+
+.principal {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subenlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.copy {
+    background-color: #F5E9CF;
+    padding: 10px 60px;
+    text-align: center;
+}

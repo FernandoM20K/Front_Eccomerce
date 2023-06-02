@@ -1,0 +1,78 @@
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
+}
+
+.product {
+    
+    &-card {
+        cursor: pointer;
+        // width: 240px;
+        background: white;
+        overflow: hidden;
+
+        &:hover .btn-add {
+            opacity: 1 !important;
+        }
+    }
+
+    &-info {
+        padding: 10px 15px;
+    }
+
+    &-marca {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: #E96479;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    &-nombre {
+        line-height: 1;
+        text-align: justify;
+        font-size: 1.1rem;
+    }
+
+    &-precio {
+        color: #E96479;
+        font-size: 1.2rem;
+    }
+}
+
+.cont-img {
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #f0f0f0;
+
+    img {
+        width: 100%;
+    }
+}
+
+.cont-btn {
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+
+.btn-add {
+    background: #E96479;
+    padding: 10px;
+    border-radius: 1rem;
+    border: none;
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.img {
+    transition: all .2s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}

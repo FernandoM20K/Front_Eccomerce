@@ -1,0 +1,15 @@
+<ul class="card-list">
+    <li class="product-card" *ngFor="let product of listProducts">
+        <div class="cont-img">
+            <img class="img" src="{{ product.imagenes[0].url }}" alt="">
+        </div>
+        <div class="product-info">
+            <h3 class="product-marca">{{ product.marca.nombre }}</h3>
+            <h2 class="product-nombre">{{ product.nombre }}</h2>
+            <h2 class="product-precio">S/ {{ product.precio | number }}</h2>
+        </div>
+        <div class="cont-btn">
+            <button class="btn-add">Agregar al Carro</button>
+        </div>
+    </li>
+</ul>

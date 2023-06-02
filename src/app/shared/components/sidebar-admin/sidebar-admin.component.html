@@ -1,0 +1,22 @@
+<div #sidebar class="sidebar">
+    <div class="cont-img">
+        <img (click)="cambiarTamanio()" src="./../../../assets/img/icons/menu-svgrepo-com.svg" alt="">
+    </div>
+    <nav>
+        <ul class="list-nav">
+            <li class="item-nav-desvio" *ngFor="let nav of navegacion">
+                <div class="item-nav" [ngClass]="{'item-activo':nav.activo}" (click)="cambiarActivo(nav.id)">
+                    <img src="{{ nav.icon }}" alt="">
+                    <h3 *ngIf="!small">{{ nav.titulo }}</h3>
+                </div>
+
+                <ul *ngIf="nav.subnavegacion" [ngClass]="{'visible':nav.activo}" class="subnav oculto">
+                    <button [routerLink]="[item.link]" class="item-nav item-nav-2" *ngFor="let item of nav?.subnavegacion">
+                        <img src="{{ item.icon }}" alt="">
+                        <h3 *ngIf="!small">{{ item.titulo }}</h3>
+                    </button>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

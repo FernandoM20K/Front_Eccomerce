@@ -1,0 +1,32 @@
+<div class="body">
+    <h1 class="title">Lista de Productos</h1>
+
+<div class="cont-table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of listProducts">
+                <td>{{ product.nombre }}</td>
+                <td>{{ product.precio }}</td>
+                <td>{{ product.stock }}</td>
+                <td [ngClass]="product.estado ? 'activo' : 'inactivo'">{{ product.estado ? 'Activo' : 'Inactivo' }}</td>
+                <td><button [routerLink]="'/admin/images/'+product.productoId" class="btn-add-img">View Imagenes</button></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</div>
+    

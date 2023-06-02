@@ -1,0 +1,6 @@
+<div *ngIf="marcaObtenida">
+    <app-form-marca [funcion]="'edit'" [marca]="marcaObtenida"></app-form-marca>
+</div>
+<div *ngIf="!marcaObtenida">
+    <app-spinner></app-spinner>
+</div>

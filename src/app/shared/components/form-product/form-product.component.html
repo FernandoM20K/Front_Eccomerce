@@ -1,0 +1,161 @@
+<h1 class="title">
+  {{
+    funcion == "add"
+      ? "Formulario para Agregar Producto"
+      : "Formulario para actualizar Producto"
+  }}
+</h1>
+<form [formGroup]="formProduct" class="form" (submit)=" funcion == 'add' ? addProduct() : updateProduct() ">
+  <!-- CM: Campo Nombre del Producto -->
+  <mat-form-field appearance="outline"
+    [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+  >
+    <mat-label
+      >Nombre
+      <span
+        class="msg"
+        [ngClass]="{'fail':nombre?.errors?.['required'] && nombre?.touched}"
+      >(El nombre es requerido)</span
+      ></mat-label
+    >
+    <input
+      formControlName="nombre"
+      type="text"
+      matInput
+      placeholder="Ingrese el nombre del Producto"
+    />
+  </mat-form-field>
+
+  <!-- CM: Campo Descripcion del Producto -->
+  <mat-form-field appearance="outline"
+    [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+  >
+    <mat-label
+      >Descripción
+      <span
+        class="msg"
+        [ngClass]="{'fail':descripcion?.errors?.['required'] && descripcion?.touched}"
+        >(La descripcion es requerida)</span
+      ></mat-label
+    >
+    <textarea 
+      formControlName="descripcion"
+      type="text"
+      matInput
+      placeholder="Ingrese la descripción del Producto"
+    >
+    </textarea>
+  </mat-form-field>
+
+  <div class="responsive">
+    <!-- CM: Campo Precio del Producto -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':precio?.errors?.['required'] && precio?.touched}"
+    >
+      <mat-label
+        >Precio
+        <span
+          class="msg"
+          [ngClass]="{'fail':precio?.errors?.['required'] && precio?.touched}"
+          >(El precio es requerido)</span
+        ></mat-label
+      >
+      <input
+        formControlName="precio"
+        type="number"
+        matInput
+        placeholder="Ingrese el precio del Producto"
+        min="0"
+      />
+    </mat-form-field>
+
+    <!-- CM: Campo Stock del Producto -->
+    <mat-form-field appearance="outline"
+      [ngClass]="{'fail':stock?.errors?.['required'] && stock?.touched}"
+    >
+      <mat-label
+        >Stock
+        <span
+          class="msg"
+          [ngClass]="{'fail':stock?.errors?.['required'] && stock?.touched}"
+          >(El Stock es requerido)</span
+        ></mat-label
+      >
+      <input
+        formControlName="stock"
+        type="number"
+        matInput
+        placeholder="Ingrese el stock del Producto"
+        min="0"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="responsive">
+    <!-- CM: Campo Estado del Producto -->
+    <div class="cont-switch">
+      <label>Estado: </label>
+      <!-- CM: Rounded switch -->
+      <label class="switch">
+          <input
+            formControlName="estado"
+            type="checkbox" 
+          />
+          <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- CM: Campo Envio Gratis del Producto -->
+    <div class="cont-switch">
+      <label>Envio Gratis: </label>
+      <!-- CM: Rounded switch -->
+      <label class="switch">
+          <input
+            formControlName="envioGratis"
+            type="checkbox" 
+          />
+          <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- CM: Campo Marca del Producto -->
+  <mat-form-field appearance="outline"
+    [ngClass]="{'fail':marcaId?.errors?.['required'] && marcaId?.touched}"
+  >
+    <mat-label
+      >Marca del Producto
+      <span
+        class="msg"
+        [ngClass]="{'fail':marcaId?.errors?.['required'] && marcaId?.touched}"
+        >(La marca es requerida)</span
+      ></mat-label
+    >
+    <mat-select formControlName="marcaId">
+      <mat-option *ngFor="let marca of marcas" [value]="marca.marcaId">{{ marca.nombre }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- CM: Campo Subcategoria del Producto -->
+  <mat-form-field appearance="outline"
+    [ngClass]="{'fail':subcategoriaId?.errors?.['required'] && subcategoriaId?.touched}"
+  >
+    <mat-label
+      >Subcategoria del Producto
+      <span
+        class="msg"
+        [ngClass]="{'fail':subcategoriaId?.errors?.['required'] && subcategoriaId?.touched}"
+        >(La subcategoria es requerida)</span
+      ></mat-label
+    >
+    <mat-select formControlName="subcategoriaId">
+      <mat-option *ngFor="let subcat of subcategorias" [value]="subcat.subcategoriaId">{{ subcat.nombre }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="cont-btn">
+    <button mat-raised-button color="primary" type="submit">
+      {{ funcion == "add" ? "Agregar Producto" : "Actualizar Producto" }}
+    </button>
+  </div>
+</form>

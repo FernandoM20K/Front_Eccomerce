@@ -1,0 +1,10 @@
+<app-navbar-clients></app-navbar-clients>
+<div class="cont">
+    <router-outlet></router-outlet>
+</div>
+<div class="body" *ngIf="listaProductos">
+    <!-- <app-side-options></app-side-options> -->
+    <app-card-producto [listProducts]="listaProductos" ></app-card-producto>
+</div>
+<app-carrusel></app-carrusel>
+<app-footer></app-footer>
